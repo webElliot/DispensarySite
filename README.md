@@ -28,10 +28,10 @@ The issue with the gov site is that there are no search filters which is the pur
 - The database uses SQLite3 for a local database
 - A Thread is spawned on initialization to visit the US gov site displaying a list of licenses
   - This thread's utility is to visit the API that shares the information of these companies.
-  - Then the data in the database is compared with the online up to date data
-    - UPDATE Query's are created for rows requring updates.
-    - Insert query is created for rows that are not in the database currently.
-    - Every 5 Minutes the online data is checked again while the website is running to ensure up to date data is displayed.
+  - Then the data in the database is compared with the online up-to-date data
+    - UPDATE Query are created for rows requiring updates. **(Batch for efficiency)**
+    - INSERT Query is created for rows that are not in the database currently. **(Batch for efficiency)**
+    - Every 5 Minutes the online data is checked again while the website is running to ensure up-to-date data is displayed.
 
 
 
