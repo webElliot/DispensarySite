@@ -1,0 +1,108 @@
+.flex-row-center {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    width: 100%;
+}
+
+.flex-container {
+    font-size: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: 10px; /* Adjust the gap as needed */
+}
+
+.flex-item {
+    flex: 0 0 calc(33.33% - 20px); /* Adjust for gap */
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer; /* Makes the mouse cursor change to a pointer, indicating it's clickable */
+    transition: all 0.45s; /* Smooth transition for the background color */
+
+}
+
+.flex-item:hover {
+    color: #238AE6;
+    border-color: #238AE6;
+}
+
+
+/*
+Search section
+ */
+
+.searchArea{
+    width: 100%;
+}
+
+.search-container {
+    display: flex;
+    background-color: #3D3D3D; /* Dark grey background */
+    border-radius: 20px; /* Rounded corners */
+    overflow: hidden; /* Ensures the inner elements don't spill out of the border radius */
+}
+
+#searchInput {
+
+    flex-grow: 1;
+    background-color: #3D3D3D; /* Same as container for seamless look */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 3em;
+    outline: none; /* Remove focus outline */
+}
+
+#searchButton {
+
+    background-color: #238AE6; /* Blue background */
+    border: none;
+    color: white;
+    padding: 1em;
+    cursor: pointer;
+    outline: none; /* Remove focus outline */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchButton i {
+    font-size: 2em;
+}
+
+/* Adjustments for the search button hover effect */
+#searchButton:hover {
+    background-color: #1a6fb3; /* A darker shade of the button color */
+}
+
+/* Placeholder text color adjustments */
+#searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.75); /* Light white for placeholder text */
+}
+
+/* If you use a reset.css or normalize.css, add this to ensure consistent styling */
+* {
+    box-sizing: border-box;
+}
+
+/* Further adjustments to remove input styles in Webkit browsers */
+input[type="text"]::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+input[type="text"]:-moz-placeholder {
+    color: rgba(255, 255, 255, 0.75);
+    opacity: 1;
+}
+
+input[type="text"]::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.75);
+    opacity: 1;
+}
+
+input[type="text"]:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}

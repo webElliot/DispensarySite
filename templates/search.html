@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='panel.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='filters.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='popup.css') }}">
+
+
+
+    <title>Search</title>
+</head>
+
+<body>
+    <div class="most_content">
+        <!-- Stats -->
+        <div class="row">
+        <div class="col-lg-4 col-md-12 mt-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3 my-auto mx-auto">
+                            <i class="fa fa-check  fa-5x lime"></i>
+                        </div>
+                        <div class="col-xs-9 text-center notify lime my-auto">
+                            <div class="huge">{{ valid_licenses }}</div>
+                            <div>Valid licenses</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12 mt-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3 my-auto mx-auto">
+                            <i class="fa fa-times  fa-5x lime"></i>
+                        </div>
+                        <div class="col-xs-9 text-center notify lime my-auto">
+                            <div class="huge">1333</div>
+                            <div>Expired licenses</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-4 col-md-12 mt-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3 my-auto mx-auto">
+                            <i class="fa fa-id-card fa-5x lime"></i>
+                        </div>
+                        <div class="col-xs-9 text-center notify lime my-auto">
+                            <div class="huge">2555</div>
+                            <div>Total licenses</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Search Filters -->
+
+    <div class="row">
+        <div class="flex-row-center mb-4">
+            <h1>
+                <i class="fa fa-search" aria-hidden="true"></i>
+                Search Filters
+            </h1>
+        </div>
+
+        <div class="flex-container">
+            <div class="flex-item">
+                <i class="fa fa-id-card" aria-hidden="true"></i>
+                License
+            </div>
+            <div class="flex-item">
+                <i class="fa fa-address-book" aria-hidden="true"></i>
+                Legal name
+            </div>
+            <div class="flex-item">
+                <i class="fa fa-address-book" aria-hidden="true"></i>
+                Trade name
+            </div>
+            <div class="flex-item">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+                County
+            </div>
+            <div class="flex-item">
+                <i class="fa fa-building" aria-hidden="true"></i>
+                City
+            </div>
+            <div class="flex-item">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                Zip
+            </div>
+        </div>
+        <script>
+            let searchTypes = [
+                "License",
+                "Legal name",
+                "Trade name",
+                "County",
+                "City",
+                "Zip"
+            ]
+        </script>
+        <div class="mt-5 text-center searchArea">
+            <input id="searchType" value="License" hidden>
+            <h2 id="searchingBy">Searching by License</h2>
+            <div class="row">
+                <div class="col-6 offset-3">
+                    <h3 id="count_results"></h3>
+
+                </div>
+                <div class="col-3">
+                    <p id="downloadText">Download Excel</p>
+                    <button id="download">
+
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button id="searchButton">
+                    <i class="fa fa-search"></i> <!-- Font Awesome icon for search -->
+                </button>
+            </div>
+        </div>
+
+</div>
+</div>
+
+<div id="copy-notification" class="copy-notification"></div>
+
+<div class="cd-popup" role="alert">
+    <div class="cd-popup-container">
+        <p id="dialog-title">1/123</p>
+
+        <p id="dialog-id" class="dialog-hover-effect"><strong>ID:</strong> [ID_VALUE]</p>
+        <p id="dialog-license-number" class="dialog-hover-effect"><strong>License Number:</strong> LICENSE_NUMBER</p>
+
+        <p id="dialog-valid-until" class="dialog-hover-effect"><strong>Valid Until:</strong> 2024-03-21</p>
+        <p id="dialog-license-type" class="dialog-hover-effect"><strong>License Type:</strong> [LICENSE_TYPE_VALUE]</p>
+
+        <p id="dialog-legal-name" class="dialog-hover-effect"><strong>Legal Name:</strong> Mariteq Dispensaries LLC</p>
+        <p id="dialog-trade-name" class="dialog-hover-effect"><strong>Trade Name:</strong> Redbird Birdhouse Stilwell</p>
+
+        <p id="dialog-county" class="dialog-hover-effect"><strong>County:</strong> Adair</p>
+        <p id="dialog-city" class="dialog-hover-effect"><strong>City:</strong> Stilwell</p>
+
+        <p id="dialog-zip" class="dialog-hover-effect"><strong>Zip:</strong> 74960</p>
+        <p id="dialog-address" class="dialog-hover-effect"><strong>Address:</strong> 511 North 2nd Street</p>
+
+        <p id="dialog-hours" class="dialog-hover-effect"><strong>Hours:</strong> 9:00 to 6:00</p>
+
+        <p id="dialog-phone" class="dialog-hover-effect"><strong>Phone:</strong> (918) 797-0771</p>
+        <p id="dialog-email" class="dialog-hover-effect"><strong>Email:</strong> smoton@redbirdmmj.com</p>
+
+
+        <ul class="cd-buttons">
+            <button>Next</button>
+        </ul>
+
+        <a class="cd-popup-close img-replace"><i class="fa fa-times" aria-hidden="true"></i></a>
+    </div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->
+
+
+
+<div class="" style="">
+   <table class="table table-dark table-striped w-100">
+
+        <thead>
+            <tr>
+                <th scope="col">License</th>
+                <th scope="col">Legal name</th>
+                <th scope="col">Trade name</th>
+                <th scope="col">County</th>
+                <th scope="col">City</th>
+                <th scope="col">Zip</th>
+                <th scope="col">Valid</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='js/searchBar.js') }}"></script>
+<script src="{{ url_for('static', filename='js/searchSelect.js') }}"></script>
+<script src="{{ url_for('static', filename='js/download.js') }}"></script>
+
+
+</body>
+
+
+
+</html>
