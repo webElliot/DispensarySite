@@ -2,7 +2,17 @@
 ### Development site link:
 http://66.85.157.72:8743
 
-# Relevant skills:
+## Relevant skills
+- SQL (sqlite3 locally)
+- Requests (API) Scraping & Updating database periodically
+- Minor usage of threading to avoid blocking
+- Flask
+- Dataclasses
+- openpyxl (Creating Excel documents)
+
+
+
+# Contents & Skills sections:
 1. [Purpose](#Purpose)
 2. [Sqlite3, SQL , Requests, Dataclasses](#Database)
 3. [Flask site filters](#Filters)
